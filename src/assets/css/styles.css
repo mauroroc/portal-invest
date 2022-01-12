@@ -1,0 +1,27 @@
+html, body, #root {
+    height: 100%;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+}
+
+#root > main {
+    flex: 1;
+}
+
+.cabecalho {
+    background-color: green;
+}
+
+.cor-branca {
+    color:#fff;
+}
+
+.rodape {
+    background-color: green;
+    color:#fff;
+    margin-top: 20px;
+    padding: 5px;
+}
