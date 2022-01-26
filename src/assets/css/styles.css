@@ -25,3 +25,51 @@ html, body, #root {
     margin-top: 20px;
     padding: 5px;
 }
+
+h1 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.input-form {
+    border-color: #198754;
+    border-radius: 5px;
+    height: 2em;
+    margin-right: 8px;
+    width: 140px;
+}
+
+.button-icons {
+    color: #198754;
+    border-radius: 5px;
+}
+
+.search {
+    display: flex;
+}
+
+.add-ticker {
+    display: flex;
+    width: 360px;
+}
+
+.crud-table {
+    margin-top: 100px;
+    display: flex;
+}
+
+.crud-table p {
+    font-size: 20px;
+}
+
+.cards {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-tickers {
+    height: 100%;
+    margin-top: 10px;
+    width: 200px
+}

@@ -1,11 +1,15 @@
-import GridTicker from "./Components/GridTicker";
-import Layout from "./Components/Layout";
+import { Routes, Route } from 'react-router-dom'
+import Carteira from './Views/Carteira';
+import Home from "./Views/Home";
+import Tickers from './Views/Tickers';
 
 function App() {
   return (
-        <Layout>
-          <GridTicker />
-        </Layout>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/carteiras" element={<Carteira />} />
+      <Route path="/tickers" element={<Tickers />} />
+    </Routes>
   );
 }
 
