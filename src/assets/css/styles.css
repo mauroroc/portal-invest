@@ -64,12 +64,15 @@ h1 {
 
 .cards {
     margin-top: 30px;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+}
+
+.row {
+    margin-bottom: 20px;
 }
 
 .card-tickers {
     height: 100%;
     margin-top: 10px;
-    width: 200px
+    width: 300px
 }

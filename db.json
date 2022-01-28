@@ -1,0 +1,12 @@
+{
+    "carteiras": [
+        { 
+            "id": 1,
+            "nome": "Carteira ABCD"
+        },
+        { 
+            "id": 2,
+            "nome": "Carteira WXYZ"
+        }
+    ]
+}

@@ -1,5 +1,4 @@
-import { Container, Table } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Col, Container, Row } from "react-bootstrap";
 import CardTicker from "../../Components/CardTicker";
 import Layout from "../../Components/Layout";
 
@@ -11,13 +10,17 @@ function Tickers() {
             <div className="add-ticker">
                 <input type="text" name="codigo" className="input-form"/>
                 <input type="text" name="preco" className="input-form"/>
-                <i class="fas fa-plus-square fa-2x button-icons"></i>
+                <i className="fas fa-plus-square fa-2x button-icons"></i>
             </div>
             <div className="cards">
-                <CardTicker />
-                <CardTicker />
-                <CardTicker />
-                <CardTicker />
+                <Row>
+                    <Col><CardTicker /></Col>
+                    <Col><CardTicker /></Col>
+                </Row>
+                <Row>
+                    <Col><CardTicker /></Col>
+                    <Col><CardTicker /></Col>
+                </Row>
             </div>
         </Container>
       </Layout>
