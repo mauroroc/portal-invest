@@ -1,12 +1,16 @@
 {
-    "carteiras": [
-        { 
-            "id": 1,
-            "nome": "Carteira ABCD"
-        },
-        { 
-            "id": 2,
-            "nome": "Carteira WXYZ"
-        }
-    ]
+  "carteiras": [
+    {
+      "nome": "BDRs",
+      "id": 1
+    },
+    {
+      "nome": "FIIs",
+      "id": 2
+    },
+    {
+      "nome": "Small Caps",
+      "id": 3
+    }
+  ]
 }

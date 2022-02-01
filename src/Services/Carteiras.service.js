@@ -5,3 +5,19 @@ export async function getCarteiras() {
     }
     return await response.json()
 }
+
+export async function postCarteira(item) {
+    await fetch('http://localhost:3001/carteiras', {
+        method: 'POST',
+        body: JSON.stringify(item),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+}
+
+export async function deleteCarteira(id) {
+    await fetch(`http://localhost:3001/carteiras/${id}`, {
+        method: 'DELETE',        
+    })
+}
