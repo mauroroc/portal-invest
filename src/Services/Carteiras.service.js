@@ -21,3 +21,11 @@ export async function deleteCarteira(id) {
         method: 'DELETE',        
     })
 }
+
+export async function getCarteirasById(id) {
+    const response = await fetch(`http://localhost:3001/carteiras/${id}?_embed=tickers`)
+    if(!response.ok) {
+        throw new Error ('Erro ao retornar os tickers das carteiras.')
+    }
+    return await response.json()
+  }

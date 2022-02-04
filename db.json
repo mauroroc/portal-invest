@@ -11,6 +11,30 @@
     {
       "nome": "Small Caps",
       "id": 3
+    },
+    {
+      "nome": "Teste",
+      "id": 4
+    }
+  ],
+  "tickers": [
+    {
+      "codigo": "BBAS3",
+      "custo": 22.5,
+      "carteiraId": 4,
+      "id": 1
+    },
+    {
+      "codigo": "PETR4",
+      "custo": 20,
+      "carteiraId": 4,
+      "id": 2
+    },
+    {
+      "codigo": "VALE3",
+      "custo": 85,
+      "carteiraId": 4,
+      "id": 3
     }
   ]
 }

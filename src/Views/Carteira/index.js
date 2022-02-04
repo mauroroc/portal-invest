@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import Layout from "../../Components/Layout";
 import { getCarteiras, postCarteira, deleteCarteira } from "../../Services/Carteiras.service";
 
-
-
 function Carteira() {
     const[carteira, setCarteira] = useState([])
     const[nameCarteira, setNameCarteira] = useState('')
