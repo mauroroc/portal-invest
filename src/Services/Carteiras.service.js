@@ -6,6 +6,14 @@ export async function getCarteiras() {
     return await response.json()
 }
 
+export async function getCarteirasWithTickers() {
+    const response = await fetch('http://localhost:3001/carteiras?_embed=tickers')
+    if(!response.ok) {
+        throw new Error ('Erro ao retornar as carteiras.')
+    }
+    return await response.json()
+}
+
 export async function postCarteira(item) {
     await fetch('http://localhost:3001/carteiras', {
         method: 'POST',
