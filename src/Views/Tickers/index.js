@@ -6,15 +6,10 @@ import ListTickers from "../../Components/ListTickers";
 import { getCarteirasById } from "../../Services/Carteiras.service";
 import { deleteTicker, postTicker } from "../../Services/Tickers.service";
 
-const initialValue = {
-    name: '',
-    cost: 0
-}
-
 function Tickers() {
     const { id } = useParams()
     const [carteira, setCarteira] = useState()    
-    const[ticker, setTicker] = useState('')
+    const[ticker, setTicker] = useState({})
     const fetchCarteira = useCallback(
         async() => {
             try {
@@ -27,11 +22,11 @@ function Tickers() {
     )
     
     const handleChange = (event) => {
-        const newTicker = {
-            ...ticker
-        }
-        newTicker[event.target.name] = event.target.value
-        setTicker(newTicker)
+        const {value, name} = event.target
+        setTicker({
+            ...ticker,
+            [name]: value
+        }) 
     }
 
     const addTicker = async () => {
@@ -40,7 +35,7 @@ function Tickers() {
             carteiraId: parseInt(id)
         }
         await postTicker(body)
-        setTicker(initialValue)
+        setTicker({})
         fetchCarteira()
     }
 
@@ -53,7 +48,7 @@ function Tickers() {
         fetchCarteira() 
     },[fetchCarteira])
     return (
-        <Layout>
+        <Layout>                      
         <Container fluid>
             {carteira ? (
                 <>
@@ -64,7 +59,7 @@ function Tickers() {
                             type="text" 
                             name="codigo" 
                             className="input-form"
-                            value={ticker.name}
+                            value={ticker.codigo || ''}
                             onChange={handleChange}
                         />
                         <label>Valor: </label>
@@ -72,7 +67,7 @@ function Tickers() {
                             type="number" 
                             name="custo" 
                             className="input-form"
-                            value={ticker.cost}
+                            value={ticker.custo || ''}
                             onChange={handleChange}
                         />
                         <i onClick={addTicker} className="fas fa-plus-square fa-2x button-icons"></i>

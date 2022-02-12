@@ -3,14 +3,6 @@
     {
       "nome": "BDRs",
       "id": 1
-    },
-    {
-      "nome": "FIIs",
-      "id": 2
-    },
-    {
-      "nome": "Small Caps",
-      "id": 3
     }
   ],
   "tickers": [
@@ -18,37 +10,17 @@
       "codigo": "AMZO34",
       "custo": "100.70",
       "carteiraId": 1,
-      "id": 4
+      "id": 4,
+      "valorFechamento": "102.1900",
+      "dataFechamento": "2022-02-11"
     },
     {
-      "codigo": "AURA33",
-      "custo": "57.44",
+      "codigo": "GOGL34",
+      "custo": "96",
       "carteiraId": 1,
-      "id": 5
-    },
-    {
-      "codigo": "DEVA11",
-      "custo": "113.30",
-      "carteiraId": 2,
-      "id": 6
-    },
-    {
-      "codigo": "PRIO3",
-      "custo": "20.73",
-      "carteiraId": 3,
-      "id": 7
-    },
-    {
-      "codigo": "TASA4",
-      "custo": "23.82",
-      "carteiraId": 3,
-      "id": 8
-    },
-    {
-      "codigo": "BCHI39",
-      "custo": "49.62",
-      "carteiraId": 1,
-      "id": 9
+      "id": 5,
+      "valorFechamento": "94.1900",
+      "dataFechamento": "2022-02-11"
     }
   ]
 }
