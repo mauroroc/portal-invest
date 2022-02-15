@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 import { useEffect } from "react";
 import { Table } from "react-bootstrap";
 import { getCarteirasWithTickers } from "../../Services/Carteiras.service";
-import ApiCotacao from "../ApiCotacao";
+import { ApiCotacao } from "../ApiCotacao";
 
 function GridTicker() {        
     const [carteiras, setCarteiras]= useState([])
@@ -39,8 +39,8 @@ function GridTicker() {
                                 <td>
                                     <ApiCotacao tickerCode={ticker.codigo}/>
                                 </td>
-                                <td>{ticker.custo}</td>
-                                <td>{((1-(ticker.custo/ticker.valorFechamento))*100).toLocaleString('pt-BR')} %</td>
+                                <td>{parseFloat(ticker.custo).toFixed(2)}</td>
+                                <td>{((1-(ticker.custo/ticker.valorFechamento))*100).toFixed(2)} %</td>
                                 <td>{1-(ticker.custo/ticker.valorFechamento)>=0 ? 'Alta' : 'Baixa'}</td>
                             </tr>)    
                         )}
