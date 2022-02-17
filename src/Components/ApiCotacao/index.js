@@ -47,14 +47,18 @@ export function ApiCotacao({tickerCode}) {
         }
         await patchTicker(body, ticker.id)
       } else {
-        const newCotacao = await getPriceByTicker(tickerCode)  
-        const newFechamento = String(newCotacao['Time Series (Daily)'][dataHoje]['4. close'])
-        valorFechamento = newFechamento
-        const body = { 
-          valorFechamento: valorFechamento,
-          dataFechamento: dataHoje
-        }
-      await patchTicker(body, ticker.id)
+        try{
+          const newCotacao = await getPriceByTicker(tickerCode)         
+          const newFechamento = String(newCotacao['Time Series (Daily)'][dataHoje]['4. close'])
+          valorFechamento = newFechamento
+          const body = { 
+            valorFechamento: valorFechamento,
+            dataFechamento: dataHoje
+          }
+        await patchTicker(body, ticker.id)
+        }catch{
+          setCotacao(ticker.valorFechamento)
+        }       
       }      
     }
   }

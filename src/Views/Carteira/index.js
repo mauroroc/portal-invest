@@ -1,21 +1,27 @@
 import { useEffect, useState } from "react";
 import { Alert, Container, Form, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import Layout from "../../Components/Layout";
+import { ModalConfirm } from "../../Components/ModalConfirm";
 import { getCarteiras, postCarteira, deleteCarteira } from "../../Services/Carteiras.service";
 
 function Carteira() {
     const[carteira, setCarteira] = useState([])
     const[nameCarteira, setNameCarteira] = useState('')
     const[generalError, setGeneralError] = useState()
+    const [carteiraToDelete, setCarteiraToDelete] = useState()
 
     const addCarteira = async () => {
         await postCarteira({ "nome": nameCarteira})
+        toast.success('Carteira cadastrada com sucesso.')
         fetchData()
     }
 
-    const delCarteira = async (id) => {      
-        await deleteCarteira(id)
+    const delCarteira = async () => {      
+        await deleteCarteira(carteiraToDelete)
+        toast.success('Carteira excluída com sucesso.')
+        closeModal()
         fetchData()
     }
     
@@ -34,6 +40,13 @@ function Carteira() {
     useEffect( async ()=>{
         fetchData() 
     },[])
+    const openModal = (id) => {    
+        setCarteiraToDelete(id)
+      }
+      const closeModal = () => {    
+        setCarteiraToDelete(undefined)
+      }
+    
     return (
         <Layout>
         <Container fluid>
@@ -61,7 +74,7 @@ function Carteira() {
                                     <td><p>{item.nome}</p></td>
                                     <td><Link to={`/tickers/${item.id}`}><i className="far fa-edit fa-2x button-icons"></i></Link></td>
                                     <td>
-                                        <i onClick={()=>delCarteira(item.id)} className="far fa-trash-alt fa-2x button-icons"></i>
+                                        <i onClick={() => {openModal(item.id)}} className="far fa-trash-alt fa-2x button-icons"></i>
                                     </td>
                                 </tr>
                             ))
@@ -69,6 +82,14 @@ function Carteira() {
                     </tbody>
                 </Table>
             </div>
+            <ModalConfirm show={!!carteiraToDelete} 
+                onConfirm={delCarteira} 
+                onHide={closeModal}
+                title='Confirmação de Exclusão'
+                content={<p>Você confirma que quer excluir essa carteira ?</p>}
+                cancelLabel='Cancelar'
+                confirmLabel='Excluir'
+                />
         </Container>
       </Layout>
         

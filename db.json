@@ -19,16 +19,16 @@
       "custo": "100.70",
       "carteiraId": 1,
       "id": 4,
-      "valorFechamento": "103.6100",
-      "dataFechamento": "2022-02-14"
+      "valorFechamento": "103.5100",
+      "dataFechamento": "2022-02-16"
     },
     {
       "codigo": "GOGL34",
       "custo": "96",
       "carteiraId": 1,
       "id": 5,
-      "valorFechamento": "94.7500",
-      "dataFechamento": "2022-02-14"
+      "valorFechamento": "94.3900",
+      "dataFechamento": "2022-02-16"
     },
     {
       "codigo": "MSFT34",
@@ -43,16 +43,16 @@
       "custo": "105",
       "carteiraId": 2,
       "id": 7,
-      "valorFechamento": "101.3500",
-      "dataFechamento": "2022-02-14"
+      "valorFechamento": "101.5500",
+      "dataFechamento": "2022-02-16"
     },
     {
       "codigo": "PRIO3",
       "custo": "20.75",
       "carteiraId": 3,
       "id": 8,
-      "valorFechamento": "26.5000",
-      "dataFechamento": "2022-02-14"
+      "valorFechamento": "25.2400",
+      "dataFechamento": "2022-02-16"
     }
   ]
 }

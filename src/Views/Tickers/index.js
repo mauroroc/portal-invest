@@ -1,8 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import Layout from "../../Components/Layout";
 import ListTickers from "../../Components/ListTickers";
+import { ModalConfirm } from "../../Components/ModalConfirm";
 import { getCarteirasById } from "../../Services/Carteiras.service";
 import { deleteTicker, postTicker } from "../../Services/Tickers.service";
 
@@ -10,6 +12,7 @@ function Tickers() {
     const { id } = useParams()
     const [carteira, setCarteira] = useState()    
     const[ticker, setTicker] = useState({})
+    const [tickerToDelete, setTickerToDelete] = useState()
     const fetchCarteira = useCallback(
         async() => {
             try {
@@ -35,18 +38,29 @@ function Tickers() {
             carteiraId: parseInt(id)
         }
         await postTicker(body)
+        toast.success('Ação cadastrada com sucesso.')
         setTicker({})
         fetchCarteira()
     }
 
-    const delTicker = async (id) => {      
-        await deleteTicker(id)
+    const delTicker = async () => {      
+        await deleteTicker(tickerToDelete)
+        toast.success('Ação excluída com sucesso.')
+        closeModal()
         fetchCarteira()
     }
 
     useEffect(()=>{
         fetchCarteira() 
     },[fetchCarteira])
+
+    const openModal = (id) => {    
+        setTickerToDelete(id)
+      }
+      const closeModal = () => {    
+        setTickerToDelete(undefined)
+      }
+
     return (
         <Layout>                      
         <Container fluid>
@@ -73,13 +87,20 @@ function Tickers() {
                         <i onClick={addTicker} className="fas fa-plus-square fa-2x button-icons"></i>
                     </div>
                     <div className="cards">
-                        <ListTickers items={carteira} delTicker={delTicker} />                                              
+                        <ListTickers items={carteira} delTicker={openModal} />                                              
                     </div>
                 </>
             ) : (                
                 ''
             )}
-            
+            <ModalConfirm show={!!tickerToDelete} 
+                onConfirm={delTicker} 
+                onHide={closeModal}
+                title='Confirmação de Exclusão'
+                content={<p>Você confirma que quer excluir essa ação ?</p>}
+                cancelLabel='Cancelar'
+                confirmLabel='Excluir'
+                />
         </Container>
       </Layout>
         
